@@ -32,7 +32,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/ButtonOk"
         android:layout_width="135dp"
         android:layout_height="75dp"
         android:backgroundTint="@color/black"

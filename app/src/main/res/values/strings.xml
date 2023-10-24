@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">First App</string>
+    <string name="TextButtonLab5">Lab 5</string>
     <string name="sales_icon">Sales</string>
     <string name="contacts_text">Контакты</string>
     <string name="about_text">Про нас</string>
     <string name="main_scen_text">Главная</string>
+    <string name="title_activity_lab5">Lab5Activity</string>
 </resources>

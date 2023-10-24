@@ -40,7 +40,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/ButtonOk"
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_marginStart="150dp"
@@ -62,14 +62,14 @@
                 android:layout_weight="1">
 
                 <Button
-                    android:id="@+id/button10"
+                    android:id="@+id/ButtonLab5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/black"
-                    android:text="Button" />
+                    android:text="@string/TextButtonLab5" />
 
                 <Button
                     android:id="@+id/button11"

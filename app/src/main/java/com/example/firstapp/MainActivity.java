@@ -2,6 +2,7 @@ package com.example.firstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,19 +14,29 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     EditText editTextText;
-    Button button;
+    Button buttonOk;
+    Button buttonLab5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         editTextText = findViewById(R.id.editTextText);
-        button = findViewById(R.id.button);
+        buttonOk = findViewById(R.id.ButtonOk);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                button.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
+                buttonOk.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
                 editTextText.setText("Hello World!");
+            }
+        });
+        buttonLab5 = findViewById(R.id.ButtonLab5);
+
+        buttonLab5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Lab5Activity.class);
+                startActivity(intent);
             }
         });
     }
