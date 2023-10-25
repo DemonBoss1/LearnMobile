@@ -4,4 +4,5 @@
     <color name="white">#FFEBF5</color>
     <color name="backgroundMain">#FFFF9800</color>
     <color name="asideBgColor">#EAEAEA</color>
+    <color name="of_app">#EC6D6D</color>
 </resources>

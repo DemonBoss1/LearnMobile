@@ -5,5 +5,7 @@
     <string name="contacts_text">Контакты</string>
     <string name="about_text">Про нас</string>
     <string name="main_scen_text">Главная</string>
+    <string name="logo_courses">Courses</string>
+    <string name="logo_app">App</string>
     <string name="title_activity_lab5">Lab5Activity</string>
 </resources>
