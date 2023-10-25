@@ -96,4 +96,63 @@
         app:layout_constraintStart_toEndOf="@+id/courses"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/app">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:backgroundTint="@color/of_app"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/lab5_button1" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:backgroundTint="@color/asideBgColor"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/lab5_button2"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:backgroundTint="@color/asideBgColor"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/lab5_button3"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:backgroundTint="@color/asideBgColor"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/lab5_button4"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:backgroundTint="@color/asideBgColor"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/lab5_button5"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

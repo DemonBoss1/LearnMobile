@@ -7,5 +7,10 @@
     <string name="main_scen_text">Главная</string>
     <string name="logo_courses">Courses</string>
     <string name="logo_app">App</string>
+    <string name="lab5_button1">Настройки</string>
+    <string name="lab5_button2">Игры</string>
+    <string name="lab5_button3">Сайты</string>
+    <string name="lab5_button4">Языки</string>
+    <string name="lab5_button5">Прочее</string>
     <string name="title_activity_lab5">Lab5Activity</string>
 </resources>
