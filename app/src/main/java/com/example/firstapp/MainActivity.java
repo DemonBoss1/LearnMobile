@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonOk;
     Button buttonCancel;
     Button buttonLab5;
+    Button button_guess_the_number;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +47,17 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getApplicationContext(), Lab5Activity.class);
+                    startActivity(intent);
+                }
+            });
+        }catch (Exception e){}
+        try {
+            button_guess_the_number = findViewById(R.id.button_guess_the_number);
+
+            button_guess_the_number.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(), GuessNumberActivity.class);
                     startActivity(intent);
                 }
             });

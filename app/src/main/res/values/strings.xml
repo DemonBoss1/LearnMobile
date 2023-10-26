@@ -23,4 +23,5 @@
     <string name="level">начальный</string>
     <string name="basket_button_text">Корзина</string>
     <string name="title_activity_lab5">Lab5Activity</string>
+    <string name="guess_the_number_text">Угадай число</string>
 </resources>
