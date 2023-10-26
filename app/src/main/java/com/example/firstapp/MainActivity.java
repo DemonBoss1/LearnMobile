@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText editTextText;
     Button buttonOk;
+    Button buttonCancel;
     Button buttonLab5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +31,25 @@ public class MainActivity extends AppCompatActivity {
                 editTextText.setText("Hello World!");
             }
         });
-        buttonLab5 = findViewById(R.id.ButtonLab5);
-
-        buttonLab5.setOnClickListener(new View.OnClickListener() {
+        buttonCancel = findViewById(R.id.buttonCancel);
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Lab5Activity.class);
-                startActivity(intent);
+                buttonOk.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
+                editTextText.setText("");
             }
         });
+        try {
+            buttonLab5 = findViewById(R.id.ButtonLab5);
+
+            buttonLab5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(), Lab5Activity.class);
+                    startActivity(intent);
+                }
+            });
+        }catch (Exception e){}
     }
 
     private void CreateToast(){

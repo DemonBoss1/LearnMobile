@@ -12,5 +12,15 @@
     <string name="lab5_button3">Сайты</string>
     <string name="lab5_button4">Языки</string>
     <string name="lab5_button5">Прочее</string>
+    <string name="java_title1">Профессия Java</string>
+    <string name="java_title2">разработчик</string>
+    <string name="python_title1">Профессия Python</string>
+    <string name="python_title2">разработчик</string>
+    <string name="start_title1">Старт</string>
+    <string name="start_title2">обучения:</string>
+    <string name="start_date">1 января</string>
+    <string name="level_title">Уровень:</string>
+    <string name="level">начальный</string>
+    <string name="basket_button_text">Корзина</string>
     <string name="title_activity_lab5">Lab5Activity</string>
 </resources>
