@@ -16,7 +16,7 @@ public class DoListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_do_list);
 
         taskList = findViewById(R.id.task_list);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, strArr);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.task_list_item, R.id.task_text, strArr);
         taskList.setAdapter(adapter);
     }
 }
