@@ -18,12 +18,14 @@ public class MainActivity extends AppCompatActivity {
     Button buttonCancel;
     Button buttonLab5;
     Button button_guess_the_number;
+    Button do_list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         editTextText = findViewById(R.id.editTextText);
         buttonOk = findViewById(R.id.ButtonOk);
+        buttonCancel = findViewById(R.id.buttonCancel);
 
         buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
                 editTextText.setText("Hello World!");
             }
         });
-        buttonCancel = findViewById(R.id.buttonCancel);
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,6 +59,17 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(getApplicationContext(), GuessNumberActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }catch (Exception e){}
+        try {
+            do_list = findViewById(R.id.do_list);
+
+            do_list.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(), DoListActivity.class);
                     startActivity(intent);
                 }
             });

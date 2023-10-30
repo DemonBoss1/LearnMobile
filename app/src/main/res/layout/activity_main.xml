@@ -61,7 +61,8 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2">
+            android:layout_marginBottom="20dp"
+            android:layout_weight="3">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -70,8 +71,8 @@
 
                 <Button
                     android:id="@+id/ButtonLab5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
@@ -80,8 +81,8 @@
 
                 <Button
                     android:id="@+id/button_guess_the_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
@@ -97,8 +98,8 @@
 
                 <Button
                     android:id="@+id/button12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
@@ -106,14 +107,14 @@
                     android:text="Button" />
 
                 <Button
-                    android:id="@+id/button13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/do_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/black"
-                    android:text="Button" />
+                    android:text="@string/do_list" />
             </TableRow>
 
         </TableLayout>
