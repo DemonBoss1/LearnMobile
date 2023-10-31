@@ -3,20 +3,28 @@ package com.example.firstapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 public class DoListActivity extends AppCompatActivity {
 
-    ListView taskList;
-    String[] strArr = new String[]{"Task1", "Task2", "Task3", "Task4", "Task5"};
+    Button Button_task_list;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_do_list);
 
-        taskList = findViewById(R.id.task_list);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.task_list_item, R.id.task_text, strArr);
-        taskList.setAdapter(adapter);
+        Button_task_list = findViewById(R.id.button_task_list);
+        Button_task_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
     }
 }
