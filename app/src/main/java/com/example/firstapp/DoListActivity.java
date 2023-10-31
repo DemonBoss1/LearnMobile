@@ -13,6 +13,7 @@ import android.widget.ListView;
 public class DoListActivity extends AppCompatActivity {
 
     Button Button_task_list;
+    Button Button_add_task;
 
 
     @Override
@@ -21,10 +22,20 @@ public class DoListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_do_list);
 
         Button_task_list = findViewById(R.id.button_task_list);
+        Button_add_task = findViewById(R.id.button_add_task);
         Button_task_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Fragment fragment = new TaskListFragment();
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragmentContainerView, fragment);
+                fragmentTransaction.commit();
+            }
+        });
+        Button_add_task.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment = new AddTaskFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragmentContainerView, fragment);
                 fragmentTransaction.commit();
