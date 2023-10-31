@@ -32,7 +32,6 @@ public class TaskListFragment extends Fragment {
      * @return A new instance of fragment TaskListFragment.
      */
     // TODO: Rename and change types and number of parameters
-    
     public static TaskListFragment newInstance(String param1, String param2) {
         TaskListFragment fragment = new TaskListFragment();
         Bundle args = new Bundle();
