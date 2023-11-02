@@ -9,4 +9,7 @@ public class TaskList {
     public static List<String> getTaskList() {
         return taskList;
     }
+    public static void addTask(String str){
+        taskList.add(str);
+    }
 }
