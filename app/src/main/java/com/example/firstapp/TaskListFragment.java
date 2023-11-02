@@ -13,7 +13,6 @@ import android.widget.ListView;
 public class TaskListFragment extends Fragment {
 
     ListView taskList;
-    String[] strArr = new String[]{"Task1", "Task2", "Task3", "Task4", "Task5"};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,7 +23,7 @@ public class TaskListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_task_list, container, false);
         taskList = v.findViewById(R.id.task_list);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.task_list_item, R.id.task_text, strArr);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.task_list_item, R.id.task_text, TaskList.getTaskList());
         taskList.setAdapter(adapter);
 
         return v;
