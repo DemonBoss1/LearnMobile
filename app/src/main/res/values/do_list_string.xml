@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="do_list">Do List</string>
+    <string name="task_list">Список задач</string>
+    <string name="add_task">Добавить задачу</string>
+    <string name="tasks">Задачи</string>
+    <string name="task">Задача</string>
+    <string-array name="importance_task">
+        <item>Не важно</item>
+        <item>Важно</item>
+    </string-array>
+</resources>

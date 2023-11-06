@@ -24,11 +24,6 @@
     <string name="basket_button_text">Корзина</string>
     <string name="title_activity_lab5">Lab5Activity</string>
     <string name="guess_the_number_text">Угадай\n число</string>
-    <string name="task_list">Список задач</string>
-    <string name="add_task">Добавить задачу</string>
-    <string name="tasks">Задачи</string>
-    <string name="task">Задача</string>
-    <string name="do_list">Do List</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
