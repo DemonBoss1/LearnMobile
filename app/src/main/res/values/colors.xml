@@ -6,4 +6,6 @@
     <color name="asideBgColor">#EAEAEA</color>
     <color name="of_app">#EC6D6D</color>
     <color name="gray">#818181</color>
+    <color name="colorThumb">#FF000000</color>
+    <color name="colorSeekbar">#323232</color>
 </resources>

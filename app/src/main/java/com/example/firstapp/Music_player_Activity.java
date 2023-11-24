@@ -6,11 +6,13 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.view.View;
+import android.widget.SeekBar;
 
 public class Music_player_Activity extends AppCompatActivity {
 
     private ImageButton playImageButton, stopImageButton;
     private MediaPlayer mediaPlayer;
+    private SeekBar seekBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,25 @@ public class Music_player_Activity extends AppCompatActivity {
         playImageButton = findViewById(R.id.playImageButton);
         stopImageButton = findViewById(R.id.stopImageButton);
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.back_in_black);
+
+        seekBar = findViewById(R.id.seekBar_luminosite);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                float volume=i/100f;
+                mediaPlayer.setVolume(volume,volume);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
     }
 
     @Override
