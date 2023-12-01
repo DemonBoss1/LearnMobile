@@ -60,9 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.button_guess_the_number:
-                String text = editTextText.getText().toString();
                 intent = new Intent(getApplicationContext(), GuessNumberActivity.class);
-                intent.putExtra("text",text);
                 startActivity(intent);
                 break;
             case R.id.ButtonLab5:
@@ -70,7 +68,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.button_message:
+                String text = editTextText.getText().toString();
                 intent = new Intent(getApplicationContext(), MessengerActivity.class);
+                intent.putExtra("text",text);
                 startActivity(intent);
                 break;
         }

@@ -25,10 +25,6 @@ public class GuessNumberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guess_number);
         setVariables();
-
-        Intent intent = getIntent();
-        String text = intent.getStringExtra("text");
-        field.setText(text);
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
