@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,10 @@ public class GuessNumberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guess_number);
         setVariables();
+
+        Intent intent = getIntent();
+        String text = intent.getStringExtra("text");
+        field.setText(text);
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

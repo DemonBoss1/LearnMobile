@@ -70,6 +70,34 @@
                 android:layout_weight="1">
 
                 <Button
+                    android:id="@+id/button_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/black"
+                    android:onClick="OnClick"
+                    android:text="@string/button_message" />
+
+                <Button
+                    android:id="@+id/b"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/black"
+                    android:onClick="OnClick"
+                    android:text="Null" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
                     android:id="@+id/ButtonLab5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -77,6 +105,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/black"
+                    android:onClick="OnClick"
                     android:text="@string/TextButtonLab5" />
 
                 <Button
@@ -87,6 +116,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/black"
+                    android:onClick="OnClick"
                     android:text="@string/guess_the_number_text" />
 
             </TableRow>
@@ -104,6 +134,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/black"
+                    android:onClick="OnClick"
                     android:text="@string/music_player" />
 
                 <Button
@@ -114,6 +145,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/black"
+                    android:onClick="OnClick"
                     android:text="@string/do_list" />
             </TableRow>
 

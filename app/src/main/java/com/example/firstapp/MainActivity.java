@@ -43,54 +43,37 @@ public class MainActivity extends AppCompatActivity {
                 editTextText.setText("");
             }
         });
-        try {
-            buttonLab5 = findViewById(R.id.ButtonLab5);
-
-            buttonLab5.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(getApplicationContext(), Lab5Activity.class);
-                    startActivity(intent);
-                }
-            });
-        }catch (Exception e){}
-        try {
-            button_guess_the_number = findViewById(R.id.button_guess_the_number);
-
-            button_guess_the_number.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(getApplicationContext(), GuessNumberActivity.class);
-                    startActivity(intent);
-                }
-            });
-        }catch (Exception e){}
-        try {
-            do_list = findViewById(R.id.do_list);
-
-            do_list.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(getApplicationContext(), DoListActivity.class);
-                    startActivity(intent);
-                }
-            });
-        }catch (Exception e){}
-        try {
-            button_music_player = findViewById(R.id.button_music_player);
-
-            button_music_player.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(getApplicationContext(), Music_player_Activity.class);
-                    startActivity(intent);
-                }
-            });
-        }catch (Exception e){}
     }
 
     private void CreateToast(){
         Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
+    }
+    public void OnClick(View view){
+        Intent intent;
+        switch (view.getId()){
+            case R.id.button_music_player:
+                intent = new Intent(getApplicationContext(), Music_player_Activity.class);
+                startActivity(intent);
+                break;
+            case R.id.do_list:
+                intent = new Intent(getApplicationContext(), DoListActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.button_guess_the_number:
+                String text = editTextText.getText().toString();
+                intent = new Intent(getApplicationContext(), GuessNumberActivity.class);
+                intent.putExtra("text",text);
+                startActivity(intent);
+                break;
+            case R.id.ButtonLab5:
+                intent = new Intent(getApplicationContext(), Lab5Activity.class);
+                startActivity(intent);
+                break;
+            case R.id.button_message:
+                intent = new Intent(getApplicationContext(), MessengerActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }
 
