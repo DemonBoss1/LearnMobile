@@ -2,6 +2,7 @@ package com.example.firstapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,7 +30,11 @@ public class MessengerActivity extends AppCompatActivity {
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_TEXT, text.getText().toString());
                 startActivity(intent);
-                text.setText("Error");
+                break;
+            case R.id.button_search:
+                intent = new Intent(Intent.ACTION_WEB_SEARCH);
+                intent.putExtra(SearchManager.QUERY, text.getText().toString());
+                startActivity(intent);
                 break;
         }
     }

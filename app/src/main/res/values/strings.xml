@@ -26,6 +26,7 @@
     <string name="guess_the_number_text">Угадай число</string>
     <string name="music_player">Music player</string>
     <string name="button_message">Send message</string>
+    <string name="button_search">Internet search</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

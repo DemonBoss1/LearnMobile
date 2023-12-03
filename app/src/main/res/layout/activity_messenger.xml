@@ -45,11 +45,12 @@
                 android:text="Button" />
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/button_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/black"
-                android:text="Button" />
+                android:onClick="sendMessage"
+                android:text="@string/button_search" />
 
             <Button
                 android:id="@+id/button_send_message"
