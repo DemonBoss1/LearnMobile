@@ -38,11 +38,12 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/dialingNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/black"
-                android:text="Button" />
+                android:onClick="sendMessage"
+                android:text="@string/dialing_number" />
 
             <Button
                 android:id="@+id/button_search"

@@ -36,6 +36,10 @@ public class MessengerActivity extends AppCompatActivity {
                 intent.putExtra(SearchManager.QUERY, text.getText().toString());
                 startActivity(intent);
                 break;
+            case R.id.dialingNumber:
+                intent = new Intent(Intent.ACTION_DIAL);
+                startActivity(intent);
+                break;
         }
     }
 }
