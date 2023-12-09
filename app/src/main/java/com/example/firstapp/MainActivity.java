@@ -73,6 +73,10 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("text",text);
                 startActivity(intent);
                 break;
+            case R.id.stopwath:
+                intent = new Intent(getApplicationContext(), StopwatchActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 }
