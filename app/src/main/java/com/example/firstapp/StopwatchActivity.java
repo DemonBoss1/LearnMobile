@@ -11,9 +11,9 @@ import android.widget.TextView;
 import java.util.Locale;
 
 public class StopwatchActivity extends AppCompatActivity {
-
     private int seconds = 0;
     private boolean running;
+    private boolean wasRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +22,15 @@ public class StopwatchActivity extends AppCompatActivity {
         if(savedInstanceState!=null){
             seconds = savedInstanceState.getInt("seconds");
             running = savedInstanceState.getBoolean("running");
+            wasRunning = savedInstanceState.getBoolean("wasRunning");
         }
         runTimer();
     }
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (wasRunning) running = true;
+    }
     public void onClickStart(View view) {
         running = true;
     }
@@ -56,11 +61,17 @@ public class StopwatchActivity extends AppCompatActivity {
             }
         });
     }
-
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt("seconds", seconds);
         outState.putBoolean("running", running);
+        outState.putBoolean("wasRunning", wasRunning);
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        wasRunning = running;
+        running = false;
     }
 }
