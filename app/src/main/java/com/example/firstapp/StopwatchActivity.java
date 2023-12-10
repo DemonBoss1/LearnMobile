@@ -29,8 +29,14 @@ public class StopwatchActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         if (wasRunning) running = true;
     }
+
     public void onClickStart(View view) {
         running = true;
     }
@@ -68,10 +74,16 @@ public class StopwatchActivity extends AppCompatActivity {
         outState.putBoolean("running", running);
         outState.putBoolean("wasRunning", wasRunning);
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        wasRunning = running;
+        running = false;
+    }
+
     @Override
     protected void onStop() {
         super.onStop();
-        wasRunning = running;
-        running = false;
     }
 }
