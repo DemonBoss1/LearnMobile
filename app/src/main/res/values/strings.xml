@@ -29,6 +29,7 @@
     <string name="button_search">Internet search</string>
     <string name="dialing_number">Dialing a number</string>
     <string name="stopwatch_text">Stopwatch</string>
+    <string name="graph_button_text">Graph</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

@@ -70,6 +70,34 @@
                 android:layout_weight="1">
 
                 <Button
+                    android:id="@+id/button_graph"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/black"
+                    android:onClick="OnClick"
+                    android:text="@string/graph_button_text" />
+
+                <Button
+                    android:id="@+id/empty"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/black"
+                    android:onClick="OnClick"
+                    android:text="empty" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
                     android:id="@+id/button_message"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

@@ -1,7 +1,5 @@
 package com.example.firstapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -10,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,6 +75,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.stopwath:
                 intent = new Intent(getApplicationContext(), StopwatchActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.button_graph:
+                intent = new Intent(getApplicationContext(), GraphActivity.class);
                 startActivity(intent);
                 break;
         }
