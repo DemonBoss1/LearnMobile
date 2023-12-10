@@ -34,9 +34,8 @@
             android:text="@string/add_task" />
     </LinearLayout>
 
-    <androidx.fragment.app.FragmentContainerView
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/fragmentContainerView"
-        android:name="com.example.firstapp.TaskListFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
