@@ -81,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(getApplicationContext(), GraphActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.map_button:
+                intent = new Intent(getApplicationContext(), MapActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 }

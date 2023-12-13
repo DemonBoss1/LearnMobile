@@ -69,4 +69,5 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     implementation("androidx.legacy:legacy-support-v4:+")
+    implementation("com.yandex.android:maps.mobile:4.4.0-lite")
 }
