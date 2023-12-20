@@ -1,6 +1,7 @@
 package com.example.firstapp;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 
 public class TaskAdapter extends BaseAdapter {
     Context context;
-    ArrayList<String> taskList;
+    ArrayList<Task> taskList;
     LayoutInflater inflater;
     public TaskAdapter(Context context){
         this.context = context;
@@ -39,7 +40,18 @@ public class TaskAdapter extends BaseAdapter {
         view = inflater.inflate(R.layout.task_list_item, null);
         TextView text = view.findViewById(R.id.task_text);
         Button button = view.findViewById(R.id.done_button);
-        text.setText(taskList.get(i));
+        text.setText(taskList.get(i).text);
+        int color = taskList.get(i).importance;
+        switch (color){
+            case 0:
+                text.setTextColor(Color.GRAY);
+                break;
+            case 1:
+                text.setTextColor(Color.RED);
+                break;
+            default:
+                text.setTextColor(Color.GREEN);
+        }
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
