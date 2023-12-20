@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+
 import java.util.ArrayList;
 
 public class TaskAdapter extends BaseAdapter {
@@ -55,6 +57,8 @@ public class TaskAdapter extends BaseAdapter {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DatabaseReference reference = DataBase.getRef();
+                reference.child(taskList.get(i).id).removeValue();
                 taskList.remove(i);
                 notifyDataSetChanged();
             }

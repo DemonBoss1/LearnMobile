@@ -31,10 +31,9 @@ public class DataBase {
         ChildEventListener listener = new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                if(snapshot.child("id").exists()){
                     Task task = snapshot.getValue(Task.class);
                     TaskList.getTaskList().add(task);
-                }
+                    TaskListFragment.adapter.notifyDataSetChanged();
             }
 
             @Override
