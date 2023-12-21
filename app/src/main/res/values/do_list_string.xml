@@ -11,4 +11,5 @@
         <item>Важно</item>
     </string-array>
     <string name="back_button">Назад</string>
+    <string name="done_button">Выполнено</string>
 </resources>

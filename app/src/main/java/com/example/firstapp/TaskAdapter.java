@@ -71,8 +71,8 @@ public class TaskAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 DatabaseReference reference = DataBase.getRef();
-                reference.child(taskList.get(i).id).removeValue();
-                taskList.remove(i);
+                reference.child(TaskList.getTask(i).id).removeValue();
+                TaskList.removeTask(i);
                 notifyDataSetChanged();
             }
         });

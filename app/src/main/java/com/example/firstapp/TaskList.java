@@ -13,6 +13,9 @@ public class TaskList {
     public static Task getTask(int i) {
         return taskList.get(i);
     }
+    public static void removeTask(int i) {
+        taskList.remove(i);
+    }
     public static void setTaskList(ArrayList<Task> List) {
         taskList = List;
     }

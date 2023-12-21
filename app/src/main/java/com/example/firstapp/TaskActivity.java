@@ -8,9 +8,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+
 public class TaskActivity extends AppCompatActivity {
     TextView title_text;
     TextView description_text;
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +26,7 @@ public class TaskActivity extends AppCompatActivity {
         description_text = findViewById(R.id.description_text);
     }
     private void setData(){
-        Intent intent = getIntent();
+        intent = getIntent();
         int i = intent.getIntExtra("index", -1);
         if(i<0) Log.e("error", "i<0");
         Task task = TaskList.getTask(i);
@@ -32,6 +35,13 @@ public class TaskActivity extends AppCompatActivity {
     }
 
     public void backActivity(View view) {
+        finish();
+    }
+    public void deleteTask(View view) {
+        int i = intent.getIntExtra("index", -1);
+        DatabaseReference reference = DataBase.getRef();
+        reference.child(TaskList.getTask(i).id).removeValue();
+        TaskList.removeTask(i);
         finish();
     }
 }
