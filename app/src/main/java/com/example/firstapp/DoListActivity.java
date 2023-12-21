@@ -23,6 +23,7 @@ public class DoListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_do_list);
 
         DataBase.getDataBase();
+        TaskAdapter.activity = this;
 
         viewPager2 = findViewById(R.id.fragmentContainerView);
         pagerAdapter = new SlidePageAdapter(this);

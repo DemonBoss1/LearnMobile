@@ -1,7 +1,10 @@
 package com.example.firstapp;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +20,7 @@ public class TaskAdapter extends BaseAdapter {
     Context context;
     ArrayList<Task> taskList;
     LayoutInflater inflater;
+    public static Activity activity;
     public TaskAdapter(Context context){
         this.context = context;
         this.taskList = TaskList.getTaskList();
@@ -54,6 +58,15 @@ public class TaskAdapter extends BaseAdapter {
             default:
                 text.setTextColor(Color.GREEN);
         }
+        text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.v("mes", ""+i);
+                Intent intent = new Intent(activity,TaskActivity.class);
+                intent.putExtra("index",i);
+                activity.startActivity(intent);
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

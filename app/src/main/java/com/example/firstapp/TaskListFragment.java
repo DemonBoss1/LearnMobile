@@ -24,7 +24,6 @@ public class TaskListFragment extends Fragment {
         taskList = v.findViewById(R.id.task_list);
         adapter = new TaskAdapter(getContext());
         taskList.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
 
         return v;
     }

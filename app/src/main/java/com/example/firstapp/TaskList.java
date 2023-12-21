@@ -10,6 +10,9 @@ public class TaskList {
     public static ArrayList<Task> getTaskList() {
         return taskList;
     }
+    public static Task getTask(int i) {
+        return taskList.get(i);
+    }
     public static void setTaskList(ArrayList<Task> List) {
         taskList = List;
     }
