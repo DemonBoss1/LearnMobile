@@ -16,9 +16,9 @@ public class TaskList {
     public static void setTaskList(ArrayList<Task> List) {
         taskList = List;
     }
-    public static void addTask(String str, int b){
+    public static void addTask(String text, String description, int b){
         DatabaseReference ref = DataBase.getRef().push();
-        Task task = new Task(ref.getKey(), str, b);
+        Task task = new Task(ref.getKey(), text, description, b);
         ref.setValue(task);
     }
 }

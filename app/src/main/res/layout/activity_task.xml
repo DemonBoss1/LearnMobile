@@ -34,10 +34,10 @@
         app:layout_constraintTop_toBottomOf="@+id/title_text">
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/description_text"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="dshfjhsdfhfj hjdf hsfh kjsd fhj sd"
+            android:layout_height="wrap_content"
+            android:text=""
             android:textSize="20sp" />
     </ScrollView>
 

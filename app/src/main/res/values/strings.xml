@@ -31,7 +31,6 @@
     <string name="stopwatch_text">Stopwatch</string>
     <string name="graph_button_text">Graph</string>
     <string name="map_button_text">Map</string>
-    <string name="back_button">Назад</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

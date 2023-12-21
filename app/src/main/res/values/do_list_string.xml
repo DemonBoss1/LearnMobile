@@ -5,8 +5,10 @@
     <string name="add_task">Добавить задачу</string>
     <string name="tasks">Задачи</string>
     <string name="task">Задача</string>
+    <string name="description">Oписание</string>
     <string-array name="importance_task">
         <item>Не важно</item>
         <item>Важно</item>
     </string-array>
+    <string name="back_button">Назад</string>
 </resources>
