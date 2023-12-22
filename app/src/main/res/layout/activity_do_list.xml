@@ -33,6 +33,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/black"
             android:text="@string/add_task" />
+
     </LinearLayout>
 
     <androidx.viewpager2.widget.ViewPager2
@@ -43,6 +44,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.viewpager2.widget.ViewPager2>
+
+    <Button
+        android:id="@+id/button_exit"
+        android:layout_width="40dp"
+        android:layout_height="45dp"
+        android:layout_margin="10dp"
+        android:padding="0dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/black"
+        android:text="Exit"
+        android:textSize="10sp"
+        android:onClick="Exit"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

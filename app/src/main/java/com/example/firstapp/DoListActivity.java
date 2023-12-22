@@ -1,5 +1,6 @@
 package com.example.firstapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,6 +8,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class DoListActivity extends AppCompatActivity {
 
@@ -44,5 +47,11 @@ public class DoListActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void Exit(View view) {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(this, RegistrationActivity.class);
+        startActivity(intent);
     }
 }
