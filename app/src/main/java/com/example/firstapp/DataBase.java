@@ -1,13 +1,16 @@
 package com.example.firstapp;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.util.Log;
 
-import com.google.firebase.database.ChildEventListener;
+import androidx.annotation.NonNull;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class DataBase {
     private static DataBase dataBase;
@@ -28,27 +31,18 @@ public class DataBase {
         return dataBase;
     }
     private void getDataFromDB(){
-        ChildEventListener listener = new ChildEventListener() {
+       ArrayList<Task> taskList = new ArrayList<>();
+        ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    Task task = snapshot.getValue(Task.class);
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<Task> taskList = TaskList.getTaskList();
+                if(taskList.size()>0)taskList.clear();
+                for (DataSnapshot ds : snapshot.getChildren()){
+                    Task task = ds.getValue(Task.class);
+                    Log.v("firebase", task.text);
                     TaskList.getTaskList().add(task);
-                    TaskListFragment.adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
+                }
+                TaskListFragment.adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -56,6 +50,6 @@ public class DataBase {
 
             }
         };
-        databaseReference.addChildEventListener(listener);
+        databaseReference.addValueEventListener(valueEventListener);
     }
 }

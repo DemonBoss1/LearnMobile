@@ -24,4 +24,13 @@ public class TaskList {
         Task task = new Task(ref.getKey(), text, description, b);
         ref.setValue(task);
     }
+
+    public static void removeTaskById(String id) {
+        for(Task task:taskList){
+            if(task.id.equals(id)){
+                taskList.remove(task);
+                break;
+            }
+        }
+    }
 }
