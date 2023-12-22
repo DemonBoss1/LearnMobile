@@ -21,10 +21,7 @@ public class RegistrationActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(DataBase.checkUser() != null){
-            Intent intent = new Intent(this, DoListActivity.class);
-            startActivity(intent);
-        }
+        startDoList();
     }
     private void init(){
         editTextLogin = findViewById(R.id.editTextLogin);
@@ -62,9 +59,12 @@ public class RegistrationActivity extends AppCompatActivity {
         }
     }
     public void startDoList(){
+        //if(DataBase.checkUser().isEmailVerified()){
         if(DataBase.checkUser() != null){
             Intent intent = new Intent(this, DoListActivity.class);
             startActivity(intent);
+        }else{
+            Toast.makeText(this, "Проверти вашу почту для подтверждения E-mail адреса", Toast.LENGTH_LONG).show();
         }
     }
 }

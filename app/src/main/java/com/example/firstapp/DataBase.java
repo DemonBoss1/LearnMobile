@@ -18,10 +18,10 @@ import java.util.ArrayList;
 
 public class DataBase {
     private static DataBase dataBase;
-    private FirebaseDatabase firebaseDatabase;
-    private FirebaseAuth auth;
-    private DatabaseReference databaseReference;
-    private String TASK_KEY = "Task";
+    private final FirebaseDatabase firebaseDatabase;
+    private final FirebaseAuth auth;
+    private final DatabaseReference databaseReference;
+    private final String TASK_KEY = "Task";
     private DataBase(){
         firebaseDatabase = FirebaseDatabase.getInstance("https://dolist-f1f90-default-rtdb.europe-west1.firebasedatabase.app");
         auth = FirebaseAuth.getInstance();
@@ -38,7 +38,6 @@ public class DataBase {
         return dataBase;
     }
     private void getDataFromDB(){
-       ArrayList<Task> taskList = new ArrayList<>();
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -60,8 +59,7 @@ public class DataBase {
     }
     public static FirebaseUser checkUser(){
         getDataBase();
-        FirebaseUser user = dataBase.auth.getCurrentUser();
-        return user;
+        return dataBase.auth.getCurrentUser();
     }
     public static void Registration(String login, String password){
         getDataBase();
@@ -76,6 +74,7 @@ public class DataBase {
                         }
                     }
                 });
+        //sentEmailVerification();
     }
     public static void Login(String login, String password){
         getDataBase();
@@ -90,6 +89,21 @@ public class DataBase {
                         }
                     }
                 });
+    }
+    public static void sentEmailVerification(){
+        getDataBase();
+        FirebaseUser user = dataBase.auth.getCurrentUser();
+        assert user != null;
+        user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
+                if(task.isSuccessful()){
+                    Log.v("Email", "Complete");
+                }else{
+                    Log.v("Email", "Not complete");
+                }
+            }
+        });
     }
 
 }
