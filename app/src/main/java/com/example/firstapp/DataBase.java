@@ -18,15 +18,20 @@ import java.util.ArrayList;
 
 public class DataBase {
     private static DataBase dataBase;
-    private final FirebaseDatabase firebaseDatabase;
+    private FirebaseDatabase firebaseDatabase;
     private final FirebaseAuth auth;
-    private final DatabaseReference databaseReference;
+    private DatabaseReference databaseReference;
     private final String TASK_KEY = "Task";
     private DataBase(){
-        firebaseDatabase = FirebaseDatabase.getInstance("https://dolist-f1f90-default-rtdb.europe-west1.firebasedatabase.app");
         auth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance("https://dolist-f1f90-default-rtdb.europe-west1.firebasedatabase.app");
         databaseReference= firebaseDatabase.getReference(TASK_KEY);
         getDataFromDB();
+    }
+    private static void updateFirebaseDatabase(){
+        dataBase.firebaseDatabase = FirebaseDatabase.getInstance("https://dolist-f1f90-default-rtdb.europe-west1.firebasedatabase.app");
+        dataBase.databaseReference= dataBase.firebaseDatabase.getReference(dataBase.TASK_KEY);
+        dataBase.getDataFromDB();
     }
     public static DatabaseReference getRef(){
         return getDataBase().databaseReference;
@@ -47,7 +52,7 @@ public class DataBase {
                     Task task = ds.getValue(Task.class);
                     TaskList.getTaskList().add(task);
                 }
-                //TaskListFragment.adapter.notifyDataSetChanged();
+                TaskListFragment.adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -59,7 +64,10 @@ public class DataBase {
     }
     public static FirebaseUser checkUser(){
         getDataBase();
-        return dataBase.auth.getCurrentUser();
+        FirebaseUser user = dataBase.auth.getCurrentUser();
+        Log.v("user", user != null ? user.toString() : "null");
+        if(user != null) DataBase.updateFirebaseDatabase();
+        return user;
     }
     public static void Registration(String login, String password){
         getDataBase();
@@ -84,6 +92,7 @@ public class DataBase {
                     public void onComplete(@NonNull com.google.android.gms.tasks.Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Log.v("Database", "User SingIn Successful");
+                            RegistrationActivity.loginComplete();
                         }else{
                             Log.e("Database", "User SingIn Error");
                         }

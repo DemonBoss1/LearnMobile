@@ -11,10 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 public class RegistrationActivity extends AppCompatActivity {
     private EditText editTextLogin;
     private EditText editTextPassword;
+    private static RegistrationActivity activity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+        activity = this;
         init();
     }
 
@@ -49,8 +51,10 @@ public class RegistrationActivity extends AppCompatActivity {
     public void loginInDatabase(View view) {
         if(checkEditText()) {
             DataBase.Login(editTextLogin.getText().toString(), editTextPassword.getText().toString());
-            startDoList();
         }
+    }
+    public static void loginComplete(){
+        activity.startDoList();
     }
 
     public void registrationInDatabase(View view) {
@@ -64,7 +68,7 @@ public class RegistrationActivity extends AppCompatActivity {
             Intent intent = new Intent(this, DoListActivity.class);
             startActivity(intent);
         }else{
-            Toast.makeText(this, "Проверти вашу почту для подтверждения E-mail адреса", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "Проверти вашу почту для подтверждения E-mail адреса", Toast.LENGTH_LONG).show();
         }
     }
 }
