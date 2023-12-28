@@ -51,6 +51,7 @@ public class RegistrationActivity extends AppCompatActivity {
     public void loginInDatabase(View view) {
         if(checkEditText()) {
             DataBase.Login(editTextLogin.getText().toString(), editTextPassword.getText().toString());
+
         }
     }
     public static void loginComplete(){

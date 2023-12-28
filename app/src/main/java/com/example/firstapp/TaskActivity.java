@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +13,7 @@ import com.google.firebase.database.DatabaseReference;
 
 public class TaskActivity extends AppCompatActivity {
     TextView title_text;
-    TextView description_text;
+    EditText description_text;
     Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,5 +44,11 @@ public class TaskActivity extends AppCompatActivity {
         reference.child(TaskList.getTask(i).id).removeValue();
         TaskList.removeTask(i);
         finish();
+    }
+
+    public void editDescription(View view) {
+        description_text.setCursorVisible(true);
+        description_text.setFocusable(true);
+        description_text.setFocusableInTouchMode(true);
     }
 }
