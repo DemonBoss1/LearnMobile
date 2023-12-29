@@ -31,7 +31,7 @@
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:hint="@string/task"
-            android:inputType="text"
+            android:inputType="textCapWords"
             android:maxLength="18"
             android:minHeight="48dp" />
 
@@ -44,7 +44,7 @@
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:hint="@string/description"
-            android:inputType="text|textMultiLine"
+            android:inputType="textCapWords|textMultiLine"
             android:gravity="top"
             android:minHeight="48dp"
             />

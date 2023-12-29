@@ -42,7 +42,7 @@
             android:focusableInTouchMode="false"
             android:gravity="top"
             android:hint="@string/description"
-            android:inputType="text|textMultiLine"
+            android:inputType="textCapWords|textMultiLine"
             android:minHeight="300dp"
             android:text=""
             android:textSize="20sp" />
