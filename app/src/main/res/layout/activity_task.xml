@@ -85,4 +85,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
+    <Button
+        android:id="@+id/ok_button"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/black"
+        android:onClick="endEdit"
+        android:text="@string/ok_button"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

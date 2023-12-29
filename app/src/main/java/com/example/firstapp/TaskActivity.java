@@ -50,5 +50,25 @@ public class TaskActivity extends AppCompatActivity {
         description_text.setCursorVisible(true);
         description_text.setFocusable(true);
         description_text.setFocusableInTouchMode(true);
+        findViewById(R.id.backButton).setVisibility(View.GONE);
+        findViewById(R.id.done_button).setVisibility(View.GONE);
+        findViewById(R.id.edit_button).setVisibility(View.GONE);
+        findViewById(R.id.ok_button).setVisibility(View.VISIBLE);
+    }
+
+    public void endEdit(View view) {
+        int i = intent.getIntExtra("index", -1);
+        DatabaseReference reference = DataBase.getRef();
+        reference.child(TaskList.getTask(i).id)
+                .setValue(new Task(TaskList.getTask(i).id, title_text.getText().toString(),
+                        description_text.getText().toString(), TaskList.getTask(i).importance));
+        description_text.setCursorVisible(false);
+        description_text.setFocusable(false);
+        description_text.setFocusableInTouchMode(false);
+        findViewById(R.id.backButton).setVisibility(View.VISIBLE);
+        findViewById(R.id.done_button).setVisibility(View.VISIBLE);
+        findViewById(R.id.edit_button).setVisibility(View.VISIBLE);
+        findViewById(R.id.ok_button).setVisibility(View.GONE);
+
     }
 }
