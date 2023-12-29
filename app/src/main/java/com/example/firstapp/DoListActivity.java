@@ -13,11 +13,12 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class DoListActivity extends AppCompatActivity {
 
-    public static final int NUM_PAGE = 2;
+    public static final int NUM_PAGE = 3;
     private ViewPager2 viewPager2;
     private FragmentStateAdapter pagerAdapter;
     Button Button_task_list;
     Button Button_add_task;
+    Button Button_setting;
 
 
     @Override
@@ -34,6 +35,7 @@ public class DoListActivity extends AppCompatActivity {
 
         Button_task_list = findViewById(R.id.button_task_list);
         Button_add_task = findViewById(R.id.button_add_task);
+        Button_setting = findViewById(R.id.button_setting);
         Button_task_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,6 +46,12 @@ public class DoListActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 viewPager2.setCurrentItem(1);
+            }
+        });
+        Button_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewPager2.setCurrentItem(2);
             }
         });
 

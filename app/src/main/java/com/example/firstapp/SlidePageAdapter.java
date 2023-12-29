@@ -17,6 +17,8 @@ public class SlidePageAdapter extends FragmentStateAdapter {
                 return new TaskListFragment();
             case 1:
                 return new AddTaskFragment();
+            case 2:
+                return new SettingFragment();
             default:
                 return null;
         }

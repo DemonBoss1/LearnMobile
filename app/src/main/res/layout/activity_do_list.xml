@@ -21,18 +21,32 @@
         <Button
             android:id="@+id/button_task_list"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_weight="1"
             android:backgroundTint="@color/black"
-            android:text="@string/task_list" />
+            android:text="@string/task_list"
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
 
         <Button
             android:id="@+id/button_add_task"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_weight="1"
             android:backgroundTint="@color/black"
-            android:text="@string/add_task" />
+            android:text="@string/add_task"
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
+
+        <Button
+            android:id="@+id/button_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/black"
+            android:text="@string/button_setting"
+            android:textSize="8sp"
+            tools:ignore="SmallSp" />
 
     </LinearLayout>
 

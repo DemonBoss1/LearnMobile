@@ -20,5 +20,6 @@
     <string name="ok_button">Ок</string>
     <string name="title_setting">Настройки</string>
     <string name="text_setting_view">Настройки групп</string>
-    <string name="button_setting">Перейти</string>
+    <string name="button_in_setting">Перейти</string>
+    <string name="button_setting">Настройки</string>
 </resources>
