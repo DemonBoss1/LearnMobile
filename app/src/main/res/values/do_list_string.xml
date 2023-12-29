@@ -18,4 +18,7 @@
     <string name="button_registration">Зарегистрироваться</string>
     <string name="button_login">Войти</string>
     <string name="ok_button">Ок</string>
+    <string name="title_setting">Настройки</string>
+    <string name="text_setting_view">Настройки групп</string>
+    <string name="button_setting">Перейти</string>
 </resources>
