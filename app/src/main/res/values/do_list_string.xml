@@ -22,4 +22,9 @@
     <string name="text_setting_view">Настройки групп</string>
     <string name="button_in_setting">Перейти</string>
     <string name="button_setting">Настройки</string>
+    <string name="title_group">Группы задач</string>
+    <string name="add_group_text">Добавление групп</string>
+    <string name="name_group">Название задачи</string>
+    <string name="password_hint">Пароль</string>
+    <string name="add_text">Добавить</string>
 </resources>

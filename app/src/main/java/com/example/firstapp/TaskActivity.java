@@ -30,7 +30,7 @@ public class TaskActivity extends AppCompatActivity {
         intent = getIntent();
         int i = intent.getIntExtra("index", -1);
         if(i<0) Log.e("error", "i<0");
-        Task task = TaskList.getTask(i);
+        Task task = ListsForAdapter.getTask(i);
         title_text.setText(task.text);
         description_text.setText(task.description);
     }
@@ -41,8 +41,8 @@ public class TaskActivity extends AppCompatActivity {
     public void deleteTask(View view) {
         int i = intent.getIntExtra("index", -1);
         DatabaseReference reference = DataBase.getRef();
-        reference.child(TaskList.getTask(i).id).removeValue();
-        TaskList.removeTask(i);
+        reference.child(ListsForAdapter.getTask(i).id).removeValue();
+        ListsForAdapter.removeTask(i);
         finish();
     }
 
@@ -59,9 +59,9 @@ public class TaskActivity extends AppCompatActivity {
     public void endEdit(View view) {
         int i = intent.getIntExtra("index", -1);
         DatabaseReference reference = DataBase.getRef();
-        reference.child(TaskList.getTask(i).id)
-                .setValue(new Task(TaskList.getTask(i).id, title_text.getText().toString(),
-                        description_text.getText().toString(), TaskList.getTask(i).importance));
+        reference.child(ListsForAdapter.getTask(i).id)
+                .setValue(new Task(ListsForAdapter.getTask(i).id, title_text.getText().toString(),
+                        description_text.getText().toString(), ListsForAdapter.getTask(i).importance));
         description_text.setCursorVisible(false);
         description_text.setFocusable(false);
         description_text.setFocusableInTouchMode(false);

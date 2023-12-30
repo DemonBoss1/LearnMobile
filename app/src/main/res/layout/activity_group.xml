@@ -14,15 +14,15 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center_horizontal"
-        android:text="Группы задач"
+        android:text="@string/title_group"
         android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <ListView
+        android:id="@+id/groupList"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -31,28 +31,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" >
-
-    </androidx.recyclerview.widget.RecyclerView>
+    </ListView>
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Добавление групп"
+        android:text="@string/add_group_text"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/groupList" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/editTextNameGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:ems="10"
-        android:hint="Название задачи"
+        android:hint="@string/name_group"
         android:inputType="text"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/textView4"
@@ -65,12 +64,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Пароль"
+        android:hint="@string/password_hint"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText2"
-        app:layout_constraintStart_toStartOf="@+id/editTextText2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextNameGroup"
+        app:layout_constraintStart_toStartOf="@+id/editTextNameGroup"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNameGroup" />
 
     <Button
         android:id="@+id/button7"
@@ -78,7 +77,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_weight="0"
-        android:text="Добавить"
+        android:text="@string/add_text"
+        android:onClick="addGroup"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"

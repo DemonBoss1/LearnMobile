@@ -46,11 +46,11 @@ public class DataBase {
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<Task> taskList = TaskList.getTaskList();
+                ArrayList<Task> taskList = ListsForAdapter.getTasks();
                 if(taskList.size()>0)taskList.clear();
                 for (DataSnapshot ds : snapshot.getChildren()){
                     Task task = ds.getValue(Task.class);
-                    TaskList.getTaskList().add(task);
+                    ListsForAdapter.getTasks().add(task);
                 }
                 TaskListFragment.adapter.notifyDataSetChanged();
             }

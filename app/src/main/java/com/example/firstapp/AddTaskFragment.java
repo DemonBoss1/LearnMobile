@@ -34,7 +34,7 @@ public class AddTaskFragment extends Fragment {
                 String task = textTask.getText().toString();
                 String description = textDescription.getText().toString();
                 int b = (int)spinner.getSelectedItemId();
-                if(textTask.length()!=0) TaskList.addTask(task, description, b);
+                if(textTask.length()!=0) ListsForAdapter.addTask(task, description, b);
                 textTask.setText("");
                 textDescription.setText("");
             }

@@ -21,7 +21,7 @@ public class TaskAdapter extends BaseAdapter {
     LayoutInflater inflater;
     public TaskAdapter(Context context){
         this.context = context;
-        this.taskList = TaskList.getTaskList();
+        this.taskList = ListsForAdapter.getTasks();
         this.inflater = LayoutInflater.from(context);
     }
     @Override
@@ -69,8 +69,8 @@ public class TaskAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 DatabaseReference reference = DataBase.getRef();
-                reference.child(TaskList.getTask(i).id).removeValue();
-                TaskList.removeTask(i);
+                reference.child(ListsForAdapter.getTask(i).id).removeValue();
+                ListsForAdapter.removeTask(i);
                 notifyDataSetChanged();
             }
         });
