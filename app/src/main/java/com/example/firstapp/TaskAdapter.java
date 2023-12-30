@@ -1,6 +1,5 @@
 package com.example.firstapp;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -20,7 +19,6 @@ public class TaskAdapter extends BaseAdapter {
     Context context;
     ArrayList<Task> taskList;
     LayoutInflater inflater;
-    public static Activity activity;
     public TaskAdapter(Context context){
         this.context = context;
         this.taskList = TaskList.getTaskList();
@@ -62,9 +60,9 @@ public class TaskAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 Log.v("mes", ""+i);
-                Intent intent = new Intent(activity,TaskActivity.class);
+                Intent intent = new Intent(DoListActivity.activity,TaskActivity.class);
                 intent.putExtra("index",i);
-                activity.startActivity(intent);
+                DoListActivity.activity.startActivity(intent);
             }
         });
         button.setOnClickListener(new View.OnClickListener() {

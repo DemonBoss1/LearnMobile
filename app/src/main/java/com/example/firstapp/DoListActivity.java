@@ -1,5 +1,6 @@
 package com.example.firstapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,7 @@ public class DoListActivity extends AppCompatActivity {
     Button Button_task_list;
     Button Button_add_task;
     Button Button_setting;
+    public static Activity activity;
 
 
     @Override
@@ -27,7 +29,7 @@ public class DoListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_do_list);
 
         DataBase.getDataBase();
-        TaskAdapter.activity = this;
+        activity = this;
 
         viewPager2 = findViewById(R.id.fragmentContainerView);
         pagerAdapter = new SlidePageAdapter(this);
