@@ -1,6 +1,7 @@
 package com.example.firstapp;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ public class GroupAdapter extends BaseAdapter {
     Context context;
     ArrayList<String> groups;
     LayoutInflater inflater;
+    TextView name;
     public GroupAdapter(Context context){
         this.context = context;
         this.groups = ListsForAdapter.getGroups();
@@ -36,15 +38,21 @@ public class GroupAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        view = inflater.inflate(R.layout.task_list_item, null);
-        TextView text = view.findViewById(R.id.task_text);
-        Button button = view.findViewById(R.id.done_button);
-        text.setText(groups.get(i));
-        button.setOnClickListener(new View.OnClickListener() {
+        view = inflater.inflate(R.layout.group_list_item, null);
+        name = view.findViewById(R.id.name);
+        Button deleteButton = view.findViewById(R.id.delete_button);
+        Button addButton = view.findViewById(R.id.add_button);
+        name.setText(groups.get(i));
+        deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ListsForAdapter.removeGroup(i);
-                notifyDataSetChanged();
+                name.setTextColor(Color.RED);
+            }
+        });
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                name.setTextColor(Color.GREEN);
             }
         });
         return view;

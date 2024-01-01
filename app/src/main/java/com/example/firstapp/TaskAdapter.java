@@ -42,7 +42,7 @@ public class TaskAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = inflater.inflate(R.layout.task_list_item, null);
-        TextView text = view.findViewById(R.id.task_text);
+        TextView text = view.findViewById(R.id.name);
         Button button = view.findViewById(R.id.done_button);
         text.setText(taskList.get(i).text);
         int color = taskList.get(i).importance;
