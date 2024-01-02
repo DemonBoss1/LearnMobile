@@ -6,7 +6,8 @@ import java.util.ArrayList;
 
 public class ListsForAdapter {
     static private final ArrayList<Task> tasks = new ArrayList<>();
-    static private final ArrayList<String> groups = new ArrayList<>();
+    static private final ArrayList<Group> groups = new ArrayList<>();
+
 
     public static ArrayList<Task> getTasks() {
         return tasks;
@@ -19,7 +20,7 @@ public class ListsForAdapter {
     }
     public static void addTask(String text, String description, int b){
 
-        DatabaseReference ref = DataBase.getRef().push();
+        DatabaseReference ref = DataBase.getRef("Task").push();
         Task task = new Task(ref.getKey(), text, description, b);
         ref.setValue(task);
         TaskListFragment.adapter.notifyDataSetChanged();
@@ -33,16 +34,19 @@ public class ListsForAdapter {
         }
     }
 
-    public static ArrayList<String> getGroups(){
+    public static ArrayList<Group> getGroups(){
         return groups;
     }
     public static void addGroup(String text){
-        groups.add(text);
+        DatabaseReference ref = DataBase.getRef("Group").push();
+        Group group = new Group(ref.getKey(), text);
+        ref.setValue(group);
+        GroupAdapter.updateAdapter();
     }
     public static void removeGroup(int i) {
         groups.remove(i);
     }
-    public static String getGroup(int i) {
+    public static Group getGroup(int i) {
         return groups.get(i);
     }
 

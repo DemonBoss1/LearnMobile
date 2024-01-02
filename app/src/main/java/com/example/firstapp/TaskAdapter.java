@@ -68,7 +68,7 @@ public class TaskAdapter extends BaseAdapter {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatabaseReference reference = DataBase.getRef();
+                DatabaseReference reference = DataBase.getRef("Task");
                 reference.child(ListsForAdapter.getTask(i).id).removeValue();
                 ListsForAdapter.removeTask(i);
                 notifyDataSetChanged();

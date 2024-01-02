@@ -40,7 +40,7 @@ public class TaskActivity extends AppCompatActivity {
     }
     public void deleteTask(View view) {
         int i = intent.getIntExtra("index", -1);
-        DatabaseReference reference = DataBase.getRef();
+        DatabaseReference reference = DataBase.getRef("Task");
         reference.child(ListsForAdapter.getTask(i).id).removeValue();
         ListsForAdapter.removeTask(i);
         finish();
@@ -58,7 +58,7 @@ public class TaskActivity extends AppCompatActivity {
 
     public void endEdit(View view) {
         int i = intent.getIntExtra("index", -1);
-        DatabaseReference reference = DataBase.getRef();
+        DatabaseReference reference = DataBase.getRef("Task");
         reference.child(ListsForAdapter.getTask(i).id)
                 .setValue(new Task(ListsForAdapter.getTask(i).id, title_text.getText().toString(),
                         description_text.getText().toString(), ListsForAdapter.getTask(i).importance));

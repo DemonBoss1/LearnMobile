@@ -1,60 +1,73 @@
 package com.example.firstapp;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class GroupAdapter extends BaseAdapter {
-    Context context;
-    ArrayList<String> groups;
-    LayoutInflater inflater;
-    TextView name;
-    public GroupAdapter(Context context){
-        this.context = context;
+import java.util.ArrayList;
+public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupViewHolder> {
+    ArrayList<Group> groups;
+    private static GroupAdapter groupAdapter;
+    public GroupAdapter(){
         this.groups = ListsForAdapter.getGroups();
-        this.inflater = LayoutInflater.from(context);
+        groupAdapter = this;
     }
+    @NonNull
     @Override
-    public int getCount() {
+    public GroupViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.group_list_item, parent, false);
+        GroupViewHolder holder = new GroupViewHolder(v);
+
+        return holder;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull GroupViewHolder holder, int position) {
+        holder.hint(position);
+    }
+
+    @Override
+    public int getItemCount() {
         return groups.size();
     }
 
-    @Override
-    public Object getItem(int i) {
-        return null;
-    }
+    class GroupViewHolder extends RecyclerView.ViewHolder {
+        TextView name;
+        Button deleteButton;
+        Button addButton;
+        public GroupViewHolder(@NonNull View itemView) {
+            super(itemView);
 
-    @Override
-    public long getItemId(int i) {
-        return 0;
+            name = itemView.findViewById(R.id.name);
+            deleteButton = itemView.findViewById(R.id.delete_button);
+            addButton = itemView.findViewById(R.id.add_button);
+            deleteButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    name.setTextColor(Color.RED);
+                }
+            });
+            addButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    name.setTextColor(Color.GREEN);
+                }
+            });
+        }
+        public void hint(int position){
+            name.setText(groups.get(position).text);
+        }
     }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        view = inflater.inflate(R.layout.group_list_item, null);
-        name = view.findViewById(R.id.name);
-        Button deleteButton = view.findViewById(R.id.delete_button);
-        Button addButton = view.findViewById(R.id.add_button);
-        name.setText(groups.get(i));
-        deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                name.setTextColor(Color.RED);
-            }
-        });
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                name.setTextColor(Color.GREEN);
-            }
-        });
-        return view;
+    public static void updateAdapter(){
+        if(groupAdapter != null){
+            groupAdapter.notifyDataSetChanged();
+        }
     }
 }

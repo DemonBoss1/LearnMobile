@@ -20,21 +20,29 @@ public class DataBase {
     private static DataBase dataBase;
     private FirebaseDatabase firebaseDatabase;
     private final FirebaseAuth auth;
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReferenceTask;
+    private DatabaseReference databaseReferenceGroup;
     private final String TASK_KEY = "Task";
+    private final String GROUP_KEY = "Group";
     private DataBase(){
         auth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance("https://dolist-f1f90-default-rtdb.europe-west1.firebasedatabase.app");
-        databaseReference= firebaseDatabase.getReference(TASK_KEY);
+        databaseReferenceTask= firebaseDatabase.getReference(TASK_KEY);
+        databaseReferenceGroup= firebaseDatabase.getReference(GROUP_KEY);
         getDataFromDB();
     }
     private static void updateFirebaseDatabase(){
         dataBase.firebaseDatabase = FirebaseDatabase.getInstance("https://dolist-f1f90-default-rtdb.europe-west1.firebasedatabase.app");
-        dataBase.databaseReference= dataBase.firebaseDatabase.getReference(dataBase.TASK_KEY);
+        dataBase.databaseReferenceTask= dataBase.firebaseDatabase.getReference(dataBase.TASK_KEY);
+        dataBase.databaseReferenceGroup= dataBase.firebaseDatabase.getReference(dataBase.GROUP_KEY);
         dataBase.getDataFromDB();
     }
-    public static DatabaseReference getRef(){
-        return getDataBase().databaseReference;
+    public static DatabaseReference getRef(String str){
+        if(str == dataBase.TASK_KEY)
+            return getDataBase().databaseReferenceTask;
+        if(str == dataBase.GROUP_KEY)
+            return getDataBase().databaseReferenceGroup;
+        return null;
     }
     public static DataBase getDataBase() {
         if(dataBase==null) {
@@ -60,7 +68,25 @@ public class DataBase {
 
             }
         };
-        databaseReference.addValueEventListener(valueEventListener);
+        databaseReferenceTask.addValueEventListener(valueEventListener);
+        valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<Group> groups = ListsForAdapter.getGroups();
+                if(groups.size()>0)groups.clear();
+                for (DataSnapshot ds : snapshot.getChildren()){
+                    Group group = ds.getValue(Group.class);
+                    ListsForAdapter.getGroups().add(group);
+                }
+                GroupAdapter.updateAdapter();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        };
+        databaseReferenceGroup.addValueEventListener(valueEventListener);
     }
     public static FirebaseUser checkUser(){
         getDataBase();

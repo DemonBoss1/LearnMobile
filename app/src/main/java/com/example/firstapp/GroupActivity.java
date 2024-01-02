@@ -3,21 +3,26 @@ package com.example.firstapp;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 
 public class GroupActivity extends AppCompatActivity {
     EditText nameGroup;
-    ListView groupList;
-    public static GroupAdapter adapter;
+    RecyclerView groupList;
+    public GroupAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
         nameGroup = findViewById(R.id.editTextNameGroup);
         groupList = findViewById(R.id.groupList);
-        adapter = new GroupAdapter(this);
+        groupList.setLayoutManager(new LinearLayoutManager(this){
+
+        });
+        adapter = new GroupAdapter();
         groupList.setAdapter(adapter);
     }
 
