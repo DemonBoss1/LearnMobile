@@ -22,12 +22,18 @@ public class GroupActivity extends AppCompatActivity {
         groupList.setLayoutManager(new LinearLayoutManager(this){
 
         });
-        adapter = new GroupAdapter();
+        adapter = new GroupAdapter(this);
         groupList.setAdapter(adapter);
     }
 
     public void addGroup(View view) {
         ListsForAdapter.addGroup(nameGroup.getText().toString());
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        adapter.commitActiveGroups();
     }
 }
