@@ -1,10 +1,12 @@
 package com.example.firstapp;
 
-public class Group {
+import java.io.Serializable;
+
+public class Group implements Serializable {
     public String id;
     public String text;
 
-    public Group(){
+    public Group (){
 
     }
     public Group(String id, String text){

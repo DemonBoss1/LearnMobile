@@ -43,11 +43,5 @@ public class ListsForAdapter {
         ref.setValue(group);
         GroupAdapter.updateAdapter();
     }
-    public static void removeGroup(int i) {
-        groups.remove(i);
-    }
-    public static Group getGroup(int i) {
-        return groups.get(i);
-    }
 
 }

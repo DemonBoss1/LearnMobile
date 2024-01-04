@@ -32,8 +32,8 @@ public class GroupActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        adapter.commitActiveGroups();
+    protected void onStop() {
+        super.onStop();
+        SavedData.commitActiveGroups();
     }
 }

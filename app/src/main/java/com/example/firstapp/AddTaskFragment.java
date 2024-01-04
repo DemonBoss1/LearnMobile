@@ -11,11 +11,12 @@ import android.widget.Spinner;
 import androidx.fragment.app.Fragment;
 
 public class AddTaskFragment extends Fragment {
-
     EditText textTask;
     EditText textDescription;
-    Spinner spinner;
     Button buttonAddTask;
+    Spinner spinner_importance;
+    Spinner spinner_group;
+    ActiveGroupAdapter adapter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,21 +25,35 @@ public class AddTaskFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_add_task, container, false);
+        init(v);
+        setButtons();
+        setSpinner_group(v);
+        return v;
+    }
+    private void init(View v){
         textTask = v.findViewById(R.id.text_task);
         textDescription = v.findViewById(R.id.text_description);
-        spinner = v.findViewById(R.id.spinner);
+        spinner_importance = v.findViewById(R.id.spinner_importance);
+        spinner_group = v.findViewById(R.id.spinner_group);
         buttonAddTask = v.findViewById(R.id.button_add_task);
+    }
+    private void setButtons(){
         buttonAddTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String task = textTask.getText().toString();
                 String description = textDescription.getText().toString();
-                int b = (int)spinner.getSelectedItemId();
+                int b = (int) spinner_importance.getSelectedItemId();
                 if(textTask.length()!=0) ListsForAdapter.addTask(task, description, b);
                 textTask.setText("");
                 textDescription.setText("");
             }
         });
-        return v;
+
     }
+    private void setSpinner_group(View v){
+        adapter = new ActiveGroupAdapter(v.getContext());
+        spinner_group.setAdapter(adapter);
+    }
+
 }
