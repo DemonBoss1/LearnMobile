@@ -15,7 +15,7 @@ public class ActiveGroupAdapter extends BaseAdapter {
     LayoutInflater inflater;
     public ActiveGroupAdapter(Context context){
         this.context = context;
-        this.activeGroups = SavedData.getActiveGroups(context);
+        this.activeGroups = SavedData.getActiveGroups();
         this.inflater = LayoutInflater.from(context);
     }
     @Override

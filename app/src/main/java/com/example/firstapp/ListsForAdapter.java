@@ -18,10 +18,10 @@ public class ListsForAdapter {
     public static void removeTask(int i) {
         tasks.remove(i);
     }
-    public static void addTask(String text, String description, int b){
+    public static void addTask(String text, String description, int b, String idGroup){
 
         DatabaseReference ref = DataBase.getRef("Task").push();
-        Task task = new Task(ref.getKey(), text, description, b);
+        Task task = new Task(ref.getKey(), text, description, b, idGroup);
         ref.setValue(task);
         TaskListFragment.adapter.notifyDataSetChanged();
     }

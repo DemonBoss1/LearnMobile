@@ -26,7 +26,7 @@ public class AddTaskFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_add_task, container, false);
         init(v);
-        setButtons();
+        setButtons(v);
         setSpinner_group(v);
         return v;
     }
@@ -37,14 +37,16 @@ public class AddTaskFragment extends Fragment {
         spinner_group = v.findViewById(R.id.spinner_group);
         buttonAddTask = v.findViewById(R.id.button_add_task);
     }
-    private void setButtons(){
+    private void setButtons(View v){
         buttonAddTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String task = textTask.getText().toString();
                 String description = textDescription.getText().toString();
                 int b = (int) spinner_importance.getSelectedItemId();
-                if(textTask.length()!=0) ListsForAdapter.addTask(task, description, b);
+                int indexGroup = (int) spinner_group.getSelectedItemId();
+                String idGroup = SavedData.getActiveGroups().get(indexGroup).id;
+                if(textTask.length()!=0) ListsForAdapter.addTask(task, description, b, idGroup);
                 textTask.setText("");
                 textDescription.setText("");
             }

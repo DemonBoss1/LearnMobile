@@ -60,8 +60,11 @@ public class TaskActivity extends AppCompatActivity {
         int i = intent.getIntExtra("index", -1);
         DatabaseReference reference = DataBase.getRef("Task");
         reference.child(ListsForAdapter.getTask(i).id)
-                .setValue(new Task(ListsForAdapter.getTask(i).id, title_text.getText().toString(),
-                        description_text.getText().toString(), ListsForAdapter.getTask(i).importance));
+                .setValue(new Task(ListsForAdapter.getTask(i).id,
+                        title_text.getText().toString(),
+                        description_text.getText().toString(),
+                        ListsForAdapter.getTask(i).importance,
+                        ListsForAdapter.getTask(i).idGroup));
         description_text.setCursorVisible(false);
         description_text.setFocusable(false);
         description_text.setFocusableInTouchMode(false);

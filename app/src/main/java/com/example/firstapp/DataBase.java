@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class DataBase {
     private static DataBase dataBase;
@@ -31,16 +32,16 @@ public class DataBase {
         databaseReferenceGroup= firebaseDatabase.getReference(GROUP_KEY);
         getDataFromDB();
     }
-    private static void updateFirebaseDatabase(){
+    public static void updateFirebaseDatabase(){
         dataBase.firebaseDatabase = FirebaseDatabase.getInstance("https://dolist-f1f90-default-rtdb.europe-west1.firebasedatabase.app");
         dataBase.databaseReferenceTask= dataBase.firebaseDatabase.getReference(dataBase.TASK_KEY);
         dataBase.databaseReferenceGroup= dataBase.firebaseDatabase.getReference(dataBase.GROUP_KEY);
         dataBase.getDataFromDB();
     }
     public static DatabaseReference getRef(String str){
-        if(str == dataBase.TASK_KEY)
+        if(Objects.equals(str, dataBase.TASK_KEY))
             return getDataBase().databaseReferenceTask;
-        if(str == dataBase.GROUP_KEY)
+        if(Objects.equals(str, dataBase.GROUP_KEY))
             return getDataBase().databaseReferenceGroup;
         return null;
     }
@@ -55,10 +56,15 @@ public class DataBase {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<Task> taskList = ListsForAdapter.getTasks();
+                ArrayList<Group> activeGroup = SavedData.getActiveGroups();
+                if(activeGroup == null) activeGroup = new ArrayList<>();
                 if(taskList.size()>0)taskList.clear();
                 for (DataSnapshot ds : snapshot.getChildren()){
                     Task task = ds.getValue(Task.class);
-                    ListsForAdapter.getTasks().add(task);
+                    for(Group group : activeGroup) {
+                        if(task != null && task.idGroup.equals(group.id))
+                            ListsForAdapter.getTasks().add(task);
+                    }
                 }
                 TaskListFragment.adapter.notifyDataSetChanged();
             }

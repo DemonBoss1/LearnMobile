@@ -35,5 +35,6 @@ public class GroupActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         SavedData.commitActiveGroups();
+        DataBase.updateFirebaseDatabase();
     }
 }

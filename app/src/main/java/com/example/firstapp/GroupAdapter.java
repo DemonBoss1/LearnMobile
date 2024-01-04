@@ -22,7 +22,7 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupViewHol
     private static GroupAdapter groupAdapter;
     public GroupAdapter(Context context){
         this.groups = ListsForAdapter.getGroups();
-        activeGroups = SavedData.getActiveGroups(context);
+        activeGroups = SavedData.getActiveGroups();
         colorGroups = new ArrayList<>();
         groupAdapter = this;
     }
@@ -71,7 +71,7 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.GroupViewHol
             deleteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-//                    name.setTextColor(Color.RED);
+                    name.setTextColor(Color.RED);
                     colorGroups.set(index, Color.RED);
                     for(Group group : activeGroups) Log.v("DO",group.text);
                     activeGroups.removeIf(group -> group.id.equals(groups.get(index).id));

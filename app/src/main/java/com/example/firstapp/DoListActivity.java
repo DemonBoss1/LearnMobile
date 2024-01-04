@@ -28,6 +28,7 @@ public class DoListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_do_list);
 
+        SavedData.loadData(this);
         DataBase.getDataBase();
         activity = this;
 
